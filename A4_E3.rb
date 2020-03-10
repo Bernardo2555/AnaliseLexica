@@ -5,12 +5,19 @@
 # abre parênteses
 # fecha parênteses 
 
-estrutura = gets.chomp.to_s
+
+estrutura = ['1', '1.3', '+', '+', '(', ')', '*', '*']
+
 i = 0
-caso = 'A'
-while i < estrutura.bytesize do
-    if estrutura[i] =~ /\A[+-]?\d+(\.\d+)?\z/ #arrumar, ele identifica um numero 
-        puts 'Tipo do simbolo: numero, simbolo: ' + estrutura[i]
+while i < estrutura.length do
+    if estrutura[i] =~ /[0-9]/ #arrumar, ele identifica um numero 
+
+        if estrutura[i] =~ /[.]/
+            puts 'Tipo do simbolo: real, simbolo: ' + estrutura[i]
+        else
+            puts 'Tipo do simbolo: numero, simbolo: ' + estrutura[i]
+        end
+
     else
         if estrutura[i] =~ /[+]/
             puts 'Tipo do simbolo: +'
